@@ -84,6 +84,6 @@ zBOT/
 
 ## 📬 Contact
 
-- GitHub: [yourusername](https://github.com/DishaA06)
-- LinkedIn: [yourusername](https://linkedin.com/in/disha-oza-bba48928a)
+- GitHub: [DishaA06](https://github.com/DishaA06)
+- LinkedIn: [disha-oza-bba48928](https://linkedin.com/in/disha-oza-bba48928a)
 - Email: doza57524@gmail.com

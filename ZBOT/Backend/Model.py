@@ -4,7 +4,7 @@ from contextlib import closing
 from rich import print #rich is a library to enhance terminal op
 from dotenv import dotenv_values # dontev is used to load environment variables frmo a file 
 from datetime import datetime #library to get current date and time
-env_vars = dotenv_values(".env")
+env_vars = dotenv_values(r"ZBOT\Backend\key.env")
 CohereAPIKey = env_vars.get("CohereAPIKey")
 co = cohere.Client(api_key=CohereAPIKey)
 funcs = {# a list of all recognized func.

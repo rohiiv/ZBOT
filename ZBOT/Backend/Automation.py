@@ -12,7 +12,7 @@
 # import subprocess 
 # import asyncio # fir asynchronus functionalities
 
-# env_vars = dotenv_values(".env") 
+# env_vars = dotenv_values(r"ZBOT\Backend\key.env") 
 # GroqAPIKey = env_vars.get("GroqAPIKey")
 
 # #define CSS class for parsing specific ele.
@@ -225,7 +225,7 @@ import keyboard
 import subprocess
 import asyncio  # For async functions
 
-env_vars = dotenv_values(".env")
+env_vars = dotenv_values(r"ZBOT\Backend\key.env")
 GroqAPIKey = env_vars.get("GroqAPIKey")
 
 # Define CSS classes for parsing specific elements.

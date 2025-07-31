@@ -23,7 +23,7 @@
 # import os 
 # import webbrowser
 
-# env_vars = dotenv_values(".env")
+# env_vars = dotenv_values(r"ZBOT\Backend\key.env")
 # Username = env_vars.get("Username")
 # Assistantname =env_vars.get("Assistantname") 
 # DefaultMessage = f'''{Username}: Hello {Assistantname},How are you?
@@ -237,7 +237,7 @@ import json
 import os 
 
 # Load Environment Variables
-env_vars = dotenv_values(".env")
+env_vars = dotenv_values(r"ZBOT\Backend\key.env")
 Username = env_vars.get("Username")
 Assistantname = env_vars.get("Assistantname") 
 DefaultMessage = f"""{Username}: Hello {Assistantname}, How are you?

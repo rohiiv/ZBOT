@@ -5,7 +5,7 @@ import edge_tts  #text to speech functionality
 import os #file path handling 
 from dotenv import dotenv_values 
 
-env_vars = dotenv_values(".env")
+env_vars = dotenv_values(r"ZBOT\Backend\key.env")
 AssistantVoice= env_vars.get("AssistantVoice") # gegt an assistant voice 
 #Asynchronous function to convert text to audio 
     

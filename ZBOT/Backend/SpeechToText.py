@@ -11,7 +11,7 @@
 # import mtranslate as mt
 
 # # Load environment variables
-# env_vars = dotenv_values(".env")
+# env_vars = dotenv_values(r"ZBOT\Backend\key.env")
 # InputLanguage = env_vars.get("InputLanguage", "en")  # Default to English if not set
 
 # # HTML Code

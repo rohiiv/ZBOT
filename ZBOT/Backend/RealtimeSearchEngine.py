@@ -4,7 +4,7 @@ from json import load ,dump
 import datetime
 from dotenv import dotenv_values
 
-env_vars = dotenv_values(".env")
+env_vars = dotenv_values(r"ZBOT\Backend\key.env")
 Username = env_vars.get("Username")
 Assistantname = env_vars.get("Assistantname")
 GroqAPIKey = env_vars.get("GroqAPIKey")

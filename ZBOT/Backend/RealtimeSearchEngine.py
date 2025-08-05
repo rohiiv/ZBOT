@@ -2,12 +2,16 @@ from googlesearch import search
 from groq import Groq
 from json import load, dump
 import datetime
-from dotenv import dotenv_values
+from dotenv import load_dotenv
+import os
 
-env_vars = dotenv_values(r"ZBOT\Backend\key.env")
-Username = env_vars.get("Username")
-Assistantname = env_vars.get("Assistantname")
-GroqAPIKey = env_vars.get("GroqAPIKey")
+# Load environment variables from .env or key.env file
+load_dotenv(r"ZBOT\Backend\key.env")
+
+Username = os.getenv("Username")
+Assistantname = os.getenv("Assistantname")
+GroqAPIKey = os.getenv("GROQ_API_KEY")
+
 # INITIALIZE ENV VARIABLES WITH GROQ KEY
 client = Groq(api_key=GroqAPIKey)
 # -----------------------------------------------------
@@ -23,7 +27,6 @@ except:
         dump([], f)
 
 def GoogleSearch(query):
-    # Fixed parameters -- 'num' and 'stop' are correct for googlesearch package
     results = list(search(query, num=5, stop=5, pause=2))
     Answer = f"The search results for '{query}' are:\n[start]\n"
     for url in results:
@@ -90,3 +93,4 @@ if __name__ == "__main__":
     while True:
         prompt = input("Enter your query: ")
         print(RealtimeSearchEngine(prompt))
+

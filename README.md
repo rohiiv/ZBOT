@@ -51,24 +51,49 @@ Say commands like:
 
 ---
 
-## 🖼️ Demo
+## Project Structure 📁
 
-*(Insert a demo GIF or video link)*
-
----
-
-## 📁 Project Structure
-
-```
-zBOT/
-├── zbot.py
-├── modules/
-│   ├── voice.py
-│   ├── actions.py
-├── assets/
-│   └── greeting.mp3
-├── requirements.txt
-└── README.md
+```text
+ZBOT/
+├── Main.py                    # Main execution file with threading logic
+├── Requirements.txt           # Python dependencies
+├── README.md                  # Project documentation
+├── .env                       # Environment variables (not in repo)
+│
+├── Frontend/                  # User Interface Components
+│   ├── GUI.py                # PyQt5-based graphical interface
+│   ├── Files/                # Temporary data files
+│   │   ├── Mic.data         # Microphone status
+│   │   ├── Status.data      # Assistant status
+│   │   ├── Responses.data   # Chat responses
+│   │   ├── Database.data    # Processed chat logs
+│   │   └── ImageGeneration.data
+|   |   
+│   └── Graphics/             # UI assets and images
+│       ├── final.gif        # Main animation
+│       ├── Mic_on.png       # Microphone icons
+│       ├── Mic_off.png
+│       ├── Home.png         # Navigation icons
+│       ├── Chats.png
+│       ├── Close.png
+│       ├── Minimize.png
+│       └── Maximize.png
+│
+├── Backend/                   # Core AI Logic
+│   ├── key.env               # API keys and config
+│   ├── Model.py              # Decision-making model (FirstLayerDMM)
+│   ├── Chatbot.py            # Conversational AI logic
+│   ├── SpeechToText.py       # Voice recognition
+│   ├── TextToSpeech.py       # Voice synthesis
+│   ├── RealtimeSearchEngine.py # Web search integration
+│   ├── Automation.py         # System task automation
+│   └── ImageGeneration.py    # AI image generation
+│
+└── Data/                     # Application Data
+    ├── ChatLog.json          # Conversation history
+    ├── Voice.html            # Web-based speech recognition
+    ├── Lata_Mangeshkar4.jpg  # Sample media files
+    └── applicationforasickleave.txt # Generated content samples
 ```
 
 ---

@@ -5,12 +5,15 @@ import datetime
 from dotenv import load_dotenv
 import os
 
-# Load environment variables from .env or key.env file
-load_dotenv(r"ZBOT\Backend\key.env")
+# Load environment variables from key.env in the same directory
+load_dotenv("key.env")
 
 Username = os.getenv("Username")
 Assistantname = os.getenv("Assistantname")
 GroqAPIKey = os.getenv("GROQ_API_KEY")
+
+# Debug print - remove after confirming key loads correctly
+print(f"Loaded Groq API Key: {GroqAPIKey}")
 
 # INITIALIZE ENV VARIABLES WITH GROQ KEY
 client = Groq(api_key=GroqAPIKey)
@@ -93,4 +96,3 @@ if __name__ == "__main__":
     while True:
         prompt = input("Enter your query: ")
         print(RealtimeSearchEngine(prompt))
-

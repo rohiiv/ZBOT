@@ -5,19 +5,19 @@ import datetime
 from dotenv import load_dotenv
 import os
 
+# Debug prints to check current directory and files
+print("Current working directory:", os.getcwd())
+print("Files in this directory:", os.listdir())
 
+# Load environment variables from key.env in the current directory
 load_dotenv("key.env")
+
+# Fetch environment variables
 GroqAPIKey = os.getenv("GROQ_API_KEY")
-print("Loaded Groq API Key:", GroqAPIKey)
-
-# Load environment variables from key.env in the same directory
-load_dotenv("key.env")
-
 Username = os.getenv("Username")
 Assistantname = os.getenv("Assistantname")
-GroqAPIKey = os.getenv("GROQ_API_KEY")
 
-# Debug print - remove after confirming key loads correctly
+# Debug print to verify correct loading of API key
 print(f"Loaded Groq API Key: {GroqAPIKey}")
 
 # INITIALIZE ENV VARIABLES WITH GROQ KEY
@@ -101,5 +101,3 @@ if __name__ == "__main__":
     while True:
         prompt = input("Enter your query: ")
         print(RealtimeSearchEngine(prompt))
-
-

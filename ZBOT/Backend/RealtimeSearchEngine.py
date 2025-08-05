@@ -2,31 +2,29 @@ from googlesearch import search
 from groq import Groq
 from json import load, dump
 import datetime
-from dotenv import load_dotenv
+# We are not using dotenv for this test
 import os
 
-# Debug prints to check current directory and files
-print("Current working directory:", os.getcwd())
-print("Files in this directory:", os.listdir())
+# --- TEMPORARY TEST: HARDCODE THE API KEY ---
+# Replace the placeholder with your actual Groq API key
+GroqAPIKey = "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"
+Username = "Rohini"  # Or your name
+Assistantname = "ZBOT" # Or your bot's name
+# --- END OF TEST ---
 
-# Load environment variables from key.env in the current directory
-load_dotenv("key.env")
+# Debug print to confirm the key is set
+print(f"Using hardcoded Groq API Key: {GroqAPIKey}")
 
-# Fetch environment variables
-GroqAPIKey = os.getenv("GROQ_API_KEY")
-Username = os.getenv("Username")
-Assistantname = os.getenv("Assistantname")
-
-# Debug print to verify correct loading of API key
-print(f"Loaded Groq API Key: {GroqAPIKey}")
-
-# INITIALIZE ENV VARIABLES WITH GROQ KEY
+# INITIALIZE THE CLIENT WITH THE HARDCODED KEY
+# This is the line that was failing. Let's see if it works now.
 client = Groq(api_key=GroqAPIKey)
 # -----------------------------------------------------
+
 System = f"""Hello, I am {Username}, You are a very accurate and advanced AI chatbot named {Assistantname} which has real-time up-to-date information from the internet.
 *** Provide Answers In a Professional Way, make sure to add full stops, commas, question marks, and use proper grammar.***
 *** Just answer the question from the provided data in a professional way. ***
 ***Make the answers easy to understand*** """
+
 try:
     with open(r"Data\ChatLog.json", "r") as f:
         messages = load(f)
@@ -78,7 +76,7 @@ def RealtimeSearchEngine(prompt):
         messages = load(f)
     messages.append({"role": "user", "content": GoogleSearch(prompt)})
     completion = client.chat.completions.create(
-        model="llama3-70b-8192",  # limit of 6000 token per minute
+        model="llama3-70b-8192",
         messages=SystemChatBot + [{"role": "system", "content": Information()}] + messages,
         temperature=0.7,
         max_tokens=2048,
@@ -98,6 +96,10 @@ def RealtimeSearchEngine(prompt):
     return AnswerModifier(Answer=Answer)
 
 if __name__ == "__main__":
+    print("\n--- Initialization Complete. The program should not crash if the API key is valid. ---\n")
     while True:
         prompt = input("Enter your query: ")
+        if prompt.lower() in ['exit', 'quit']:
+            break
         print(RealtimeSearchEngine(prompt))
+

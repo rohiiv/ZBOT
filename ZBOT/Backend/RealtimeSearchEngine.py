@@ -4,10 +4,11 @@ from json import load, dump
 import datetime
 from dotenv import load_dotenv
 import os
-print("Current working directory:", os.getcwd())   # <--- Add this line!
+
+
 load_dotenv("key.env")
 GroqAPIKey = os.getenv("GROQ_API_KEY")
-print("Loaded Groq API Key:", GroqAPIKey) 
+print("Loaded Groq API Key:", GroqAPIKey)
 
 # Load environment variables from key.env in the same directory
 load_dotenv("key.env")
@@ -100,4 +101,5 @@ if __name__ == "__main__":
     while True:
         prompt = input("Enter your query: ")
         print(RealtimeSearchEngine(prompt))
+
 
